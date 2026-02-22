@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "pattern": "https:\\\/\\\/raw\\.githubusercontent\\.com\\\/TypingSimulator\\\/NarrativeSchema\\\/v\\d+\\.\\d+\\.\\d+\\\/narrativeStory\\.schema\\.json"
+    },
+    "title": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "properties": {
+          "SectionLabel": {
+            "type": "string"
+          },
+          "passageStrings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^\\S(?:.*\\S)?$"
+            },
+            "minItems": 1
+          }
+        },
+        "required": ["SectionLabel", "passageStrings"]
+      },
+      "minItems": 1
+    }
+  },
+  "required": ["title", "author", "id", "sections", "$schema"],
+  "additionalProperties": false
+}
